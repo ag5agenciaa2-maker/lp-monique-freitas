@@ -79,6 +79,11 @@ img {
     display: block;
 }
 
+/* Evita layout shift em imagens sem dimensões explícitas */
+img:not([width]):not([height]) {
+    aspect-ratio: attr(width) / attr(height);
+}
+
 a {
     text-decoration: none;
     color: inherit;
