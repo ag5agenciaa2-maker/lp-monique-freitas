@@ -423,20 +423,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
-    // PRELOAD IMAGES
+    // PRELOAD IMAGES (apenas imagens acima da dobra)
     // ============================================
     const preloadImages = () => {
-        const images = document.querySelectorAll('img');
-        
-        images.forEach(img => {
-            const src = img.getAttribute('src');
-            if (src && !src.startsWith('data:')) {
-                const preloadLink = document.createElement('link');
-                preloadLink.rel = 'preload';
-                preloadLink.as = 'image';
-                preloadLink.href = src;
-                document.head.appendChild(preloadLink);
-            }
+        const aboveFoldImages = [
+            'imagens/hero-monique-freitas-advocacia-tributaria-campo-grande-rj (4).webp',
+            'imagens/logo-header.webp'
+        ];
+
+        aboveFoldImages.forEach(src => {
+            const preloadLink = document.createElement('link');
+            preloadLink.rel = 'preload';
+            preloadLink.as = 'image';
+            preloadLink.href = src;
+            preloadLink.setAttribute('fetchpriority', 'high');
+            document.head.appendChild(preloadLink);
         });
     };
 
