@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://moniquefreitasadv.ag5agencia.site/sitemap.xml
